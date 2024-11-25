@@ -89,13 +89,13 @@
 
     <!-- Payment Form -->
     <form id="payment-form">
-      <label for="amount">Enter Payment Amount</label>
+      <label for="amount">Cash on Delivery</label>
       <input type="number" id="amount" placeholder="Amount to Pay" required>
 
       <label for="address">Enter Delivery Address</label>
       <textarea id="address" placeholder="Enter your address" required></textarea>
 
-      <button type="submit">Cash on Delivery</button>
+      <button type="submit">ORDER CONFIRMED</button>
     </form>
   </section>
 
@@ -123,7 +123,7 @@
       if (enteredAmount != totalAmount) {
         alert('Incorrect amount! Please enter the correct amount.');
       } else {
-        alert(`Payment Successful! Amount Paid: $${enteredAmount}. Delivery Address: ${address}`);
+        alert(`ORDER CONFIRMED: $${enteredAmount}. Delivery Address: ${address}`);
         window.location.href = 'home.html'; // Redirect to the home page
       }
     });
