@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add some basic styling */
+    .payment {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .payment h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .payment label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .payment input, .payment textarea, .payment button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .payment button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .payment button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="payment">
+    <h2>Payment Page</h2>
+
+    <!-- Display Total Amount -->
+    <p><strong>Total Amount to Pay: $<span id="display-amount">0</span></strong></p>
+
+    <!-- Payment Form -->
+    <form id="payment-form">
+      <label for="amount">Enter Payment Amount</label>
+      <input type="number" id="amount" placeholder="Amount to Pay" required>
+
+      <label for="address">Enter Delivery Address</label>
+      <textarea id="address" placeholder="Enter your address" required></textarea>
+
+      <button type="submit">Pay Now</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Product Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Retrieve the total amount from localStorage
+    const totalAmount = localStorage.getItem('totalAmount');
+
+    // Display the total amount in the payment page
+    document.getElementById('display-amount').textContent = totalAmount;
+
+    // Pre-fill the payment amount input
+    document.getElementById('amount').value = totalAmount;
+
+    // Handle payment form submission
+    document.getElementById('payment-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const enteredAmount = parseFloat(document.getElementById('amount').value);
+      const address = document.getElementById('address').value;
+
+      if (enteredAmount != totalAmount) {
+        alert('Incorrect amount! Please enter the correct amount.');
+      } else {
+        alert(`Payment Successful! Amount Paid: $${enteredAmount}. Delivery Address: ${address}`);
+        window.location.href = 'home.html'; // Redirect to the home page
+      }
+    });
+  </script>
+</body>
+</html>
