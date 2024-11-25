@@ -6,6 +6,32 @@
   <title>Payment</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    nav {
+        background-color: #3586ff;
+        padding: 1rem;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+      .header {
+        background-color: #010101;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
     /* Add some basic styling */
     .payment {
       max-width: 500px;
@@ -42,16 +68,19 @@
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="cart.html">Cart</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header Section -->
+  <div class="header">
+    Cosmetic Store 
+  </div>
 
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
   <section class="payment">
     <h2>Payment Page</h2>
 
