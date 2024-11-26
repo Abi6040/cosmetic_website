@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | Cosmetic Store</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #3586ff;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 1.8rem;
+    }
+
+    header .store-name {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 8px 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #2a67d6;
+      border-radius: 5px;
+    }
+
+    .product-details {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .product-image {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+
+    .product-details h2 {
+      margin-top: 20px;
+    }
+
+    .product-details p {
+      margin-top: 10px;
+    }
+
+    #product-price {
+      font-size: 36px;
+      font-weight: bold;
+      color: #ff5733;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      margin-top: 20px;
+    }
+
+    #payment-form {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    #payment-form label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    #payment-form input, #payment-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #payment-form button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #payment-form button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f1f1;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="store-name">Cosmetic Store</div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="product-details">
+    <img id="product-image" src="" alt="Product Image" class="product-image">
+    <h2 id="product-title">Product Title</h2>
+    <p id="product-description">Product Description</p>
+    <p id="product-price">$0.00</p>
+
+    <!-- Payment form -->
+    <form id="payment-form">
+      <label for="amount">Enter Amount</label>
+      <input type="number" id="amount" placeholder="Amount to Pay" required>
+      
+      <label for="address">Enter Delivery Address</label>
+      <textarea id="address" placeholder="Enter Address" required></textarea>
+      
+      <button type="submit">CONFIRM ORDER</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Cosmetic Store. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Populate product details from localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+      const product = JSON.parse(localStorage.getItem('product'));
+      if (product) {
+        document.getElementById('product-title').textContent = product.title;
+        document.getElementById('product-description').textContent = 'Detailed description of ' + product.title;
+        document.getElementById('product-price').textContent = product.price;
+        document.getElementById('product-image').src = product.image;
+      }
+    });
+
+    // Handle payment form submission
+    document.getElementById('payment-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const enteredAmount = parseFloat(document.getElementById('amount').value);
+      const address = document.getElementById('address').value;
+      const product = JSON.parse(localStorage.getItem('product'));
+      const price = parseFloat(product.price.replace('$', ''));
+
+      if (enteredAmount !== price) {
+        alert('Incorrect amount! Please enter the correct amount.');
+      } else {
+        alert(`ORDER CONFIRMED! CASH ON DELIVERY: $${enteredAmount}. Delivery Address: ${address}`);
+        localStorage.removeItem('product');
+        window.location.href = 'home.html'; // Redirect to home page
+      }
+    });
+  </script>
+</body>
+</html>
