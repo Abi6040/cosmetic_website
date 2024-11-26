@@ -7,6 +7,53 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+body{height: 900px;}
+header {
+	background: url('http://www.autodatz.com/wp-content/uploads/2017/05/Old-Car-Wallpapers-Hd-36-with-Old-Car-Wallpapers-Hd.jpg');
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+}
+header .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+	
+}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 80px;
+	margin-bottom: 30px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+
+button {
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #333;
+	background: #fff;
+	margin-bottom: 50px;
+	box-shadow: 0 3px 20px 0 #0000003b;
+}
+button:hover{
+	cursor: pointer;
+}
     /* Ensure all product images are the same size */
     .card-img-top {
       width: 100%;
@@ -251,18 +298,18 @@
 </head>
 <body>
       <!-- Store Name Section -->
-  <div class="store-name">
-    Cosmetic Store
-  </div>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
+      <header>
+        <div class="overlay">
+      <h1>COSMETIC STORE</h1>
+      <h3>Reasons for Choosing US</h3>
+      <p>Simply The Best</p>
+        <br>
+        <div class="button"><li><a href="home.html">Home</a></li>
         <li><a href="cart.html">Cart</a></li>
         <li><a href="about.html">About Us</a></li>
-      </ul>
-    </nav>
-  </header>
+      </div>
+          </div>
+      </header>
 
   <section class="container mt-4">
     <!-- Bootstrap Grid for Products -->
